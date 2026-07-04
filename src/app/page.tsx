@@ -174,7 +174,7 @@ export default function Home() {
         </div>
 
         <div className="flex items-center gap-4 bg-white/10 p-4 rounded-full max-w-[300px] mx-auto border border-white/20">
-          <div className="w-16 h-16 bg-gray-300 rounded-full overflow-hidden shrink-0"></div>
+          <img src="/ui/svetlana-salon-hero.webp" alt="Светлана" className="w-16 h-16 rounded-full object-cover shrink-0" />
           <div>
             <h4 className="font-serif text-lg leading-none mb-1 text-[#2c2c2c]">Светлана</h4>
             <p className="text-[10px] uppercase tracking-wider text-[#2c2c2c]">Топ-стилист / основатель</p>
