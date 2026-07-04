@@ -322,12 +322,18 @@ export default function Home() {
           <p className="font-serif text-3xl tracking-wide">+7 (928) 280-62-94</p>
         </div>
         
-        <div className="flex justify-center gap-4 mb-12">
-          <a href="https://t.me/SvetSalonPro" target="_blank" rel="noreferrer" className="w-12 h-12 bg-[#ebdcd4] text-[#2c2c2c] rounded-full flex items-center justify-center hover:bg-white hover:scale-105 transition-all shadow-lg">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-1.92 9.06c-.15.65-.53.81-1.07.51l-2.97-2.18-1.43 1.38c-.16.16-.29.29-.6.29l.21-3.03 5.52-4.98c.24-.22-.05-.34-.37-.12l-6.82 4.29-2.93-.91c-.64-.2-.65-.64.13-.94l11.45-4.41c.53-.2.99.12.8.95z"/></svg>
+        <div className="flex justify-center gap-6 mb-12">
+          <a href="https://t.me/SvetSalonPro" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-[0_5px_20px_rgba(36,161,222,0.4)]">
+            <svg width="56" height="56" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="120" cy="120" r="120" fill="#24A1DE"/>
+              <path d="M54.128 116.495L178.683 68.455C184.453 66.275 189.52 69.805 187.618 76.103L166.425 175.76C164.848 182.903 160.59 184.665 154.605 181.3L121.94 157.235L106.183 172.413C104.443 174.153 102.99 175.603 99.418 175.603L101.763 142.148L162.593 87.168C165.235 84.815 162.018 83.513 158.498 85.865L83.255 133.195L51.01 123.118C44.015 120.935 43.885 116.115 52.473 112.755L54.128 116.495Z" fill="white"/>
+            </svg>
           </a>
-          <a href="https://wa.me/79282806294" target="_blank" rel="noreferrer" className="w-12 h-12 bg-[#ebdcd4] text-[#2c2c2c] rounded-full flex items-center justify-center hover:bg-white hover:scale-105 transition-all shadow-lg">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.01 0C5.38 0 0 5.38 0 12c0 2.12.55 4.11 1.52 5.86L.18 23.54l5.83-1.53c1.7.92 3.65 1.44 5.71 1.44 6.61 0 11.99-5.38 11.99-12S18.62 0 12.01 0zm0 21.46c-1.8 0-3.51-.48-5.02-1.38l-3.56.93.95-3.47A9.97 9.97 0 012.03 12C2.03 6.49 6.51 2.01 12.01 2.01c5.5 0 9.98 4.48 9.98 9.99 0 5.51-4.48 9.99-9.98 9.99zm5.56-7.39c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.23-.65.08-2.22-1.12-3.8-2.52-4.63-4.48-.13-.3.13-.28.43-.88.1-.2.05-.38-.03-.53-.08-.15-.68-1.63-.93-2.23-.25-.6-.5-.53-.68-.53-.18 0-.38-.03-.58-.03-.2 0-.53.08-.8.38-.28.3-1.05 1.03-1.05 2.5 0 1.48 1.08 2.9 1.23 3.1.15.2 2.1 3.2 5.1 4.5.7.3 1.25.48 1.68.6.7.2 1.35.18 1.85.1.58-.1 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.13-.28-.2-.58-.35z"/></svg>
+          <a href="https://wa.me/79282806294" target="_blank" rel="noreferrer" className="w-14 h-14 rounded-full flex items-center justify-center hover:scale-110 transition-transform shadow-[0_5px_20px_rgba(37,211,102,0.4)] bg-white">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12.01 2.01C6.49 2.01 2.03 6.49 2.03 12c0 1.95.55 3.82 1.58 5.43L2 22l4.71-1.58c1.57.99 3.4 1.54 5.3 1.54 5.5 0 9.98-4.48 9.98-9.99 0-5.51-4.48-9.99-9.98-9.99z" fill="#25D366"/>
+              <path d="M17.57 14.61c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.23-.65.08-2.22-1.12-3.8-2.52-4.63-4.48-.13-.3.13-.28.43-.88.1-.2.05-.38-.03-.53-.08-.15-.68-1.63-.93-2.23-.25-.6-.5-.53-.68-.53-.18 0-.38-.03-.58-.03-.2 0-.53.08-.8.38-.28.3-1.05 1.03-1.05 2.5 0 1.48 1.08 2.9 1.23 3.1.15.2 2.1 3.2 5.1 4.5.7.3 1.25.48 1.68.6.7.2 1.35.18 1.85.1.58-.1 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.13-.28-.2-.58-.35z" fill="white"/>
+            </svg>
           </a>
         </div>
         
