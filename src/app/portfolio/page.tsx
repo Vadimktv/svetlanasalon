@@ -18,11 +18,8 @@ const PORTFOLIO_DATA = {
     '/portfolio/manicure/manicure2.png',
     '/portfolio/manicure/manicure3.jpg',
     '/portfolio/manicure/manicure4.jpg',
-    '/portfolio/manicure/manicure5.jpeg',
-    '/portfolio/manicure/manicure6.jpeg',
     '/portfolio/manicure/manicure7.JPG',
     '/portfolio/manicure/manicure8.jpg',
-    '/portfolio/manicure/manicure9.jpeg',
   ],
   BROWS: [
     '/portfolio/Brovi/brows1.jpeg',
