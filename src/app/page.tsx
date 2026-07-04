@@ -308,26 +308,39 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contacts */}
-      <section id="contacts" className="bg-[#a8a39d] py-12 px-6 text-center relative rounded-t-3xl text-[#2c2c2c]">
-        <h2 className="font-serif text-3xl mb-8">Контакты</h2>
+      {/* Contacts & Footer */}
+      <section id="contacts" className="bg-[#2c2c2c] py-16 px-6 text-center relative rounded-t-[40px] text-[#ebdcd4] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
+        <h2 className="font-serif text-4xl mb-8">Контакты</h2>
         
-        <p className="font-bold mb-1">Геленджик</p>
-        <p className="text-sm mb-6">ул. Одесская 3А, корп. 10</p>
+        <div className="mb-8">
+          <p className="text-xs uppercase tracking-widest text-[#a8a39d] mb-2">Адрес</p>
+          <p className="font-medium text-lg leading-snug">г. Геленджик<br/>ул. Одесская 3А, корп. 10</p>
+        </div>
         
-        <p className="font-bold text-xl mb-8">+7 (928) 280-62-94</p>
+        <div className="mb-10">
+          <p className="text-xs uppercase tracking-widest text-[#a8a39d] mb-2">Телефон</p>
+          <p className="font-serif text-3xl tracking-wide">+7 (928) 280-62-94</p>
+        </div>
         
-        <div className="flex justify-center gap-4 mb-8">
-          <a href="https://t.me/SvetSalonPro" target="_blank" rel="noreferrer" className="w-10 h-10 border border-[#2c2c2c] rounded-full flex items-center justify-center hover:bg-[#2c2c2c] hover:text-[#a8a39d] transition-colors">✈️</a>
-          <div className="w-10 h-10 border border-[#2c2c2c] rounded-full flex items-center justify-center cursor-pointer hover:bg-[#2c2c2c] hover:text-[#a8a39d] transition-colors">📷</div>
+        <div className="flex justify-center gap-4 mb-12">
+          <a href="https://t.me/SvetSalonPro" target="_blank" rel="noreferrer" className="w-12 h-12 bg-[#ebdcd4] text-[#2c2c2c] rounded-full flex items-center justify-center hover:bg-white hover:scale-105 transition-all shadow-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.56 8.16l-1.92 9.06c-.15.65-.53.81-1.07.51l-2.97-2.18-1.43 1.38c-.16.16-.29.29-.6.29l.21-3.03 5.52-4.98c.24-.22-.05-.34-.37-.12l-6.82 4.29-2.93-.91c-.64-.2-.65-.64.13-.94l11.45-4.41c.53-.2.99.12.8.95z"/></svg>
+          </a>
+          <a href="https://wa.me/79282806294" target="_blank" rel="noreferrer" className="w-12 h-12 bg-[#ebdcd4] text-[#2c2c2c] rounded-full flex items-center justify-center hover:bg-white hover:scale-105 transition-all shadow-lg">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.01 0C5.38 0 0 5.38 0 12c0 2.12.55 4.11 1.52 5.86L.18 23.54l5.83-1.53c1.7.92 3.65 1.44 5.71 1.44 6.61 0 11.99-5.38 11.99-12S18.62 0 12.01 0zm0 21.46c-1.8 0-3.51-.48-5.02-1.38l-3.56.93.95-3.47A9.97 9.97 0 012.03 12C2.03 6.49 6.51 2.01 12.01 2.01c5.5 0 9.98 4.48 9.98 9.99 0 5.51-4.48 9.99-9.98 9.99zm5.56-7.39c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.95 1.18-.18.2-.35.23-.65.08-2.22-1.12-3.8-2.52-4.63-4.48-.13-.3.13-.28.43-.88.1-.2.05-.38-.03-.53-.08-.15-.68-1.63-.93-2.23-.25-.6-.5-.53-.68-.53-.18 0-.38-.03-.58-.03-.2 0-.53.08-.8.38-.28.3-1.05 1.03-1.05 2.5 0 1.48 1.08 2.9 1.23 3.1.15.2 2.1 3.2 5.1 4.5.7.3 1.25.48 1.68.6.7.2 1.35.18 1.85.1.58-.1 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.13-.28-.2-.58-.35z"/></svg>
+          </a>
+        </div>
+        
+        {/* Real Yandex Map Frame */}
+        <div className="w-full h-[250px] bg-white rounded-3xl overflow-hidden relative shadow-lg">
+          <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A3b140df3f9b2b3a1a1f0a1f0a1f0a1f0a1f0a1f0a1f0a1f0a1f0a1f0a1f0a1f0&amp;source=constructor&amp;ll=38.077222%2C44.561111&amp;z=16" width="100%" height="100%" frameBorder="0" className="absolute inset-0"></iframe>
+          
+          {/* Overlay to prevent accidental scrolling inside map when scrolling the page */}
+          <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_20px_rgba(0,0,0,0.1)]"></div>
         </div>
 
-        {/* Map Placeholder */}
-        <div className="w-full h-[200px] bg-gray-300 rounded-xl overflow-hidden relative border border-white/20">
-          <div className="absolute inset-0 bg-[#2c2c2c]/10"></div>
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 py-2 rounded-lg text-sm font-bold shadow-lg">
-            📍 Одесская 3А
-          </div>
+        <div className="mt-12 text-[10px] text-[#ebdcd4]/50 tracking-widest uppercase">
+          © 2026 Svetlana Beauty Salon
         </div>
       </section>
 
