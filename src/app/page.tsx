@@ -47,9 +47,9 @@ export default function Home() {
           <div className="flex-1 text-center md:text-left flex flex-col items-center md:items-start">
             <img src="/logo.png" alt="Svetlana Salon Logo" className="w-16 h-16 rounded-full mb-6 object-cover shadow-lg hidden md:block" />
             <h1 className="font-serif text-4xl md:text-6xl tracking-[0.2em] mb-2">SVETLANA</h1>
-            <p className="text-xs md:text-sm tracking-widest uppercase opacity-80 mb-8">beauty salon</p>
+            <p className="text-xs md:text-sm tracking-widest uppercase opacity-80 mb-8 text-[#a8a39d]">Эстетика и косметология</p>
             <p className="hidden md:block text-base leading-relaxed opacity-90 max-w-md mb-8">
-              Премиальное пространство красоты в Геленджике, где безупречный стиль сочетается с первоклассным сервисом.
+              Уютный салон красоты в Геленджике. Мы подчеркиваем вашу естественную красоту, создавая идеальные образы с любовью к каждой детали.
             </p>
           </div>
 
