@@ -173,31 +173,52 @@ export default function Home() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
-        className="bg-[#ebdcd4] py-16 md:py-24 px-6"
+        className="bg-[#ebdcd4] py-16 md:py-24 px-6 relative z-10"
       >
         <div className="max-w-4xl mx-auto">
-          <h2 className="font-serif text-3xl md:text-5xl mb-12 text-center uppercase tracking-widest">Услуги</h2>
+          <h2 className="font-serif text-3xl md:text-5xl mb-10 text-center uppercase tracking-widest text-[#2c2c2c]">Услуги</h2>
           
           {/* Main Tabs */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            <button onClick={() => setActiveCategory('HAIR')} className={`py-3 px-8 rounded-full text-xs font-bold tracking-wider transition-colors ${activeCategory === 'HAIR' ? 'bg-[#333333] text-white shadow-md' : 'bg-white/50 text-[#a8a39d] hover:bg-white'}`}>ВОЛОСЫ</button>
-            <button onClick={() => setActiveCategory('NAILS')} className={`py-3 px-8 rounded-full text-xs font-bold tracking-wider transition-colors ${activeCategory === 'NAILS' ? 'bg-[#333333] text-white shadow-md' : 'bg-white/50 text-[#a8a39d] hover:bg-white'}`}>МАНИКЮР</button>
-            <button onClick={() => setActiveCategory('BROWS')} className={`py-3 px-8 rounded-full text-xs font-bold tracking-wider transition-colors ${activeCategory === 'BROWS' ? 'bg-[#333333] text-white shadow-md' : 'bg-white/50 text-[#a8a39d] hover:bg-white'}`}>БРОВИ</button>
-            <button onClick={() => setActiveCategory('SPA')} className={`py-3 px-8 rounded-full text-xs font-bold tracking-wider transition-colors ${activeCategory === 'SPA' ? 'bg-[#333333] text-white shadow-md' : 'bg-white/50 text-[#a8a39d] hover:bg-white'}`}>SPA</button>
-          </div>
-
-          {/* Price List */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 mb-16 text-sm md:text-base font-medium">
-            {SERVICES[activeCategory].map((service, idx) => (
-              <div key={idx} className="flex justify-between items-end">
-                <span className="max-w-[70%] font-bold">{service.name}</span>
-                <div className="border-b-2 border-dotted border-[#a8a39d]/50 flex-grow mx-3 mb-1.5"></div>
-                <span>{service.price}</span>
-              </div>
+          <div className="flex flex-wrap justify-center gap-3 mb-10">
+            {[
+              { id: 'HAIR', label: 'ВОЛОСЫ' },
+              { id: 'NAILS', label: 'МАНИКЮР' },
+              { id: 'BROWS', label: 'БРОВИ' },
+              { id: 'SPA', label: 'SPA' }
+            ].map(tab => (
+              <button 
+                key={tab.id}
+                onClick={() => setActiveCategory(tab.id as any)} 
+                className={`py-3 px-6 md:px-8 rounded-full text-[10px] md:text-xs font-bold tracking-wider transition-all duration-300 ${activeCategory === tab.id ? 'bg-[#333333] text-[#ebdcd4] shadow-[0_5px_15px_rgba(0,0,0,0.2)] scale-105' : 'bg-white/40 text-[#2c2c2c]/70 hover:bg-white hover:text-[#2c2c2c] hover:shadow-sm hover:scale-105'}`}
+              >
+                {tab.label}
+              </button>
             ))}
           </div>
 
-          <button onClick={() => setModalOpen(true)} className="w-full max-w-[320px] bg-[#ebdcd4] border-2 border-[#a8a39d] text-[#2c2c2c] font-bold text-sm tracking-wider uppercase py-5 px-8 rounded-full mx-auto block hover:bg-[#a8a39d] hover:text-white transition-colors">
+          {/* Price List Card */}
+          <div className="bg-white/50 backdrop-blur-md rounded-[2rem] border border-white/60 p-6 md:p-10 mb-12 shadow-[0_10px_40px_rgba(0,0,0,0.04)] min-h-[200px]">
+            <AnimatePresence mode="wait">
+              <motion.div 
+                key={activeCategory}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 text-sm md:text-base font-medium"
+              >
+                {SERVICES[activeCategory].map((service, idx) => (
+                  <div key={idx} className="flex justify-between items-end group">
+                    <span className="max-w-[70%] font-bold text-[#2c2c2c]">{service.name}</span>
+                    <div className="border-b-2 border-dotted border-[#a8a39d]/40 flex-grow mx-3 mb-1.5 group-hover:border-[#a8a39d]/80 transition-colors"></div>
+                    <span className="text-[#2c2c2c] whitespace-nowrap font-bold">{service.price}</span>
+                  </div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          <button onClick={() => setModalOpen(true)} className="w-full max-w-[320px] bg-[#333333] text-[#ebdcd4] font-bold text-sm tracking-widest uppercase py-5 px-8 rounded-full mx-auto block hover:bg-black hover:scale-105 transition-all duration-300 shadow-xl">
             ЗАПИСАТЬСЯ
           </button>
         </div>
