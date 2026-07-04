@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 
 const SERVICES = {
   HAIR: [
@@ -130,7 +131,7 @@ export default function Home() {
         <div className="w-full flex flex-col gap-4 mb-4">
           <button onClick={() => setModalOpen(true)} className="pill-btn hover:bg-white transition-colors">ОНЛАЙН ЗАПИСЬ</button>
           <a href="#services" className="pill-btn hover:bg-white transition-colors">УСЛУГИ</a>
-          <a href="#gallery" className="pill-btn hover:bg-white transition-colors">ФОТО РАБОТ</a>
+          <Link href="/portfolio" className="pill-btn hover:bg-white transition-colors">ФОТО РАБОТ</Link>
           <a href="#contacts" className="pill-btn hover:bg-white transition-colors">АДРЕС</a>
         </div>
       </section>
@@ -223,24 +224,23 @@ export default function Home() {
       </section>
 
       {/* Photo Gallery & Reviews */}
-      <section id="gallery" className="bg-white py-12 px-6 rounded-t-3xl">
-        <h2 className="font-serif text-3xl mb-6 text-center">Фотогалерея</h2>
+      <section id="gallery" className="bg-white py-12 px-6 rounded-t-3xl text-center">
+        <h2 className="font-serif text-3xl mb-6">Портфолио</h2>
         
-        <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory hide-scrollbar">
-          {[
-            '/portfolio/hair/Женская стрижка.JPG',
-            '/portfolio/hair/Колористика волос.JPG',
-            '/portfolio/hair/Окрашивание волос.JPG',
-            '/portfolio/manicure/classic-manicure.png',
-            '/portfolio/manicure/Комбинированный маникюр.jpg',
-          ].map((src, i) => (
-            <div key={i} className="min-w-[280px] h-[350px] bg-gray-100 rounded-xl overflow-hidden shrink-0 snap-center relative shadow-sm border border-black/5">
-              <img src={src} alt="Работы Светланы" className="w-full h-full object-cover" loading="lazy" />
-            </div>
-          ))}
+        <div className="grid grid-cols-2 gap-3 mb-6">
+          <div className="bg-gray-100 rounded-xl overflow-hidden aspect-[4/5] shadow-sm relative">
+            <img src="/portfolio/hair/Окрашивание волос.JPG" alt="Волосы" className="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div className="bg-gray-100 rounded-xl overflow-hidden aspect-[4/5] shadow-sm relative">
+            <img src="/portfolio/manicure/classic-manicure.png" alt="Маникюр" className="w-full h-full object-cover" loading="lazy" />
+          </div>
         </div>
+        
+        <Link href="/portfolio" className="inline-block border border-[#2c2c2c] text-[#2c2c2c] rounded-full py-3 px-8 text-sm font-bold uppercase tracking-wider hover:bg-[#2c2c2c] hover:text-white transition-colors">
+          Смотреть всё
+        </Link>
 
-        <h2 className="font-serif text-3xl mt-12 mb-6 text-center">Отзывы</h2>
+        <h2 className="font-serif text-3xl mt-16 mb-6">Отзывы</h2>
         <div className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm mb-4">
           <div className="flex items-center gap-3 mb-2">
             <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center font-bold text-xs">Е</div>
