@@ -51,8 +51,24 @@ function Accordion({ title, children }: { title: string, children: React.ReactNo
 
 function BookingModal({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) {
   const [status, setStatus] = useState('');
+  const [phone, setPhone] = useState('+7 ');
 
   if (!isOpen) return null;
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let val = e.target.value;
+    // Ensure it always starts with +7
+    if (!val.startsWith('+7')) {
+      if (val.startsWith('8')) {
+        val = '+7 ' + val.slice(1);
+      } else if (val.startsWith('7')) {
+        val = '+7 ' + val.slice(1);
+      } else {
+        val = '+7 ' + val.replace(/\+7/g, '');
+      }
+    }
+    setPhone(val);
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -69,7 +85,11 @@ function BookingModal({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
       const result = await res.json();
       if (result.success) {
         setStatus('Заявка успешно отправлена!');
-        setTimeout(onClose, 2000);
+        setTimeout(() => {
+          onClose();
+          setStatus('');
+          setPhone('+7 ');
+        }, 2000);
       } else {
         setStatus('Ошибка отправки.');
       }
@@ -98,7 +118,7 @@ function BookingModal({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
             <input type="text" name="name" placeholder="Ваше имя" required className="w-full bg-[#f8f6f5] border-0 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-[#a8a39d]/50 transition-all text-[#2c2c2c] placeholder:text-gray-400"/>
           </div>
           <div className="relative">
-            <input type="tel" name="phone" placeholder="Телефон (+7...)" required className="w-full bg-[#f8f6f5] border-0 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-[#a8a39d]/50 transition-all text-[#2c2c2c] placeholder:text-gray-400"/>
+            <input type="tel" name="phone" value={phone} onChange={handlePhoneChange} placeholder="Телефон (+7...)" required className="w-full bg-[#f8f6f5] border-0 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-[#a8a39d]/50 transition-all text-[#2c2c2c] placeholder:text-gray-400"/>
           </div>
           
           <div className="relative">
@@ -121,7 +141,7 @@ function BookingModal({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
             <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400 text-xs">▼</div>
           </div>
 
-          <textarea name="comment" placeholder="Комментарий / Пожелания" className="w-full bg-[#f8f6f5] border-0 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-[#a8a39d]/50 transition-all text-[#2c2c2c] placeholder:text-gray-400 resize-none h-24"></textarea>
+          <textarea name="comment" placeholder="Комментарий / Пожелания (необязательно)" className="w-full bg-[#f8f6f5] border-0 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:ring-2 focus:ring-[#a8a39d]/50 transition-all text-[#2c2c2c] placeholder:text-gray-400 resize-none h-24"></textarea>
 
           <button type="submit" className="w-full bg-[#333333] text-[#ebdcd4] py-4 rounded-full font-bold tracking-widest text-xs uppercase hover:bg-black transition-colors shadow-lg mt-2">
             {status || 'ОТПРАВИТЬ ЗАЯВКУ'}
