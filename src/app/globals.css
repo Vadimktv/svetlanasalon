@@ -35,7 +35,3 @@ h1, h2, h3, h4, .font-serif {
 .pill-btn {
   @apply w-full max-w-[280px] bg-[#ebdcd4] text-[#2c2c2c] font-bold text-sm tracking-wider uppercase py-4 px-6 rounded-full shadow-md text-center mx-auto block mb-4;
 }
-
-.accordion-title {
-  @apply flex items-center justify-between font-bold text-sm uppercase bg-white py-3 px-4 rounded-lg shadow-sm mb-2;
-}

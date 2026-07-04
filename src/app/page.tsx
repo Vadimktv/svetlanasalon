@@ -3,33 +3,52 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Navigation from '@/components/Navigation';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { BookingModal, SERVICES } from '@/components/BookingModal';
 
-
+function Accordion({ title, children }: { title: string, children: React.ReactNode }) {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <div className="mb-4 bg-white/60 backdrop-blur-md border border-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] transition-all duration-300 group">
+      <button 
+        className="w-full flex items-center justify-between py-5 px-6 text-left cursor-pointer outline-none" 
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        <span className="font-bold text-sm tracking-widest text-[#2c2c2c] uppercase">{title}</span>
+        <motion.div
+          animate={{ rotate: isOpen ? 45 : 0 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm text-[#a8a39d] group-hover:scale-110 transition-transform"
+        >
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 1V13M1 7H13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </motion.div>
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <div className="px-6 pb-6 text-sm text-[#2c2c2c]/80 leading-relaxed border-t border-[#ebdcd4]/50 mt-2 pt-4">
+              {children}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState<'HAIR' | 'NAILS' | 'BROWS' | 'SPA'>('HAIR');
   const [isModalOpen, setModalOpen] = useState(false);
 
-  function Accordion({ title, children }: { title: string, children: React.ReactNode }) {
-    const [isOpen, setIsOpen] = useState(false);
-    return (
-      <div className="mb-2">
-        <div 
-          className="accordion-title cursor-pointer" 
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <span>{isOpen ? '−' : '+'} {title}</span>
-        </div>
-        {isOpen && (
-          <div className="text-xs text-[#2c2c2c]/80 leading-relaxed bg-white/50 p-4 rounded-lg mb-2">
-            {children}
-          </div>
-        )}
-      </div>
-    );
-  }
+
 
   return (
     <main className="w-full bg-[#ebdcd4] min-h-screen relative z-10">
@@ -41,13 +60,13 @@ export default function Home() {
         initial={{ opacity: 0 }} 
         animate={{ opacity: 1 }} 
         transition={{ duration: 1 }}
-        className="bg-[#333333] text-[#ebdcd4] pt-16 pb-12 md:py-32 px-6 flex flex-col items-center justify-center relative z-10 shadow-lg md:rounded-b-[80px] rounded-b-[40px]"
+        className="bg-[#333333] text-[#ebdcd4] pt-28 pb-12 md:py-32 px-6 flex flex-col items-center justify-center relative z-10 shadow-lg md:rounded-b-[80px] rounded-b-[40px]"
       >
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 w-full">
           <div className="flex-1 text-center md:text-left flex flex-col items-center md:items-start">
             <img src="/logo.png" alt="Svetlana Salon Logo" className="w-16 h-16 rounded-full mb-6 object-cover shadow-lg hidden md:block" />
             <h1 className="font-serif text-4xl md:text-6xl tracking-[0.2em] mb-2">SVETLANA</h1>
-            <p className="text-xs md:text-sm tracking-widest uppercase opacity-80 mb-8 text-[#a8a39d]">Эстетика и косметология</p>
+            <p className="text-[10px] md:text-sm tracking-widest uppercase opacity-80 mb-8 text-[#a8a39d]">Эстетика и косметология</p>
             <p className="hidden md:block text-base leading-relaxed opacity-90 max-w-md mb-8">
               Уютный салон красоты в Геленджике. Мы подчеркиваем вашу естественную красоту, создавая идеальные образы с любовью к каждой детали.
             </p>
@@ -190,16 +209,35 @@ export default function Home() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
-        className="bg-[#ebdcd4] pt-8 pb-12 px-6"
+        className="bg-[#ebdcd4] pt-12 pb-24 px-6 relative z-10"
       >
-        <h2 className="font-serif text-2xl mb-8 text-center leading-tight">Рекомендации<br/>до и после</h2>
-        
-        <h3 className="font-bold text-lg mb-4 text-[#a8a39d]">Окрашивание волос</h3>
-        <Accordion title="ПЕРЕД ОКРАШИВАНИЕМ">Не мойте голову в день окрашивания. Если есть аллергия, сообщите мастеру заранее.</Accordion>
-        <Accordion title="ПОСЛЕ ОКРАШИВАНИЕМ">Используйте шампуни для окрашенных волос без сульфатов. Избегайте горячих укладок в первые дни.</Accordion>
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-serif text-3xl md:text-5xl mb-4 text-center leading-tight">Рекомендации</h2>
+          <p className="text-center text-sm md:text-base mb-12 opacity-70 uppercase tracking-widest text-[#2c2c2c]">До и после процедур</p>
+          
+          <div className="bg-white/20 p-2 md:p-3 rounded-[2.5rem] border border-white/40 shadow-xl backdrop-blur-sm">
+            <div className="bg-white/40 p-6 md:p-10 rounded-[2rem] border border-white/60">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#a8a39d] shadow-sm">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14.25 6.087c0-.355.186-.676.401-.959.221-.29.349-.634.349-1.003 0-1.036-1.007-1.875-2.25-1.875s-2.25.84-2.25 1.875c0 .369.128.713.349 1.003.215.283.401.604.401.959v0a.64.64 0 01-.657.643 48.39 48.39 0 01-4.163-.3c.186 1.613.293 3.25.315 4.907a.656.656 0 01-.658.663v0c-.355 0-.676-.186-.959-.401a1.647 1.647 0 00-1.003-.349c-1.036 0-1.875 1.007-1.875 2.25s.84 2.25 1.875 2.25c.369 0 .713-.128 1.003-.349.283-.215.604-.401.959-.401v0c.31 0 .557.26.545.57a48.01 48.01 0 00-.012 3.125c0 .178.077.348.21.465l1.625 1.41a.63.63 0 00.742.04l2.45-1.633a.627.627 0 01.692 0l2.45 1.633a.63.63 0 00.742-.04l1.625-1.41a.643.643 0 00.21-.465c0-1.042-.004-2.083-.012-3.125a.656.656 0 01.545-.57v0c.355 0 .676.186.959.401.29.221.634.349 1.003.349 1.036 0 1.875-1.007 1.875-2.25s-.84-2.25-1.875-2.25a1.647 1.647 0 00-1.003.349c-.283.215-.604.401-.959.401v0a.656.656 0 01-.658-.663 48.424 48.424 0 00.315-4.907.64.64 0 01-.657-.643v0z"/></svg>
+                </div>
+                <h3 className="font-serif text-2xl text-[#2c2c2c]">Окрашивание волос</h3>
+              </div>
+              
+              <Accordion title="Перед окрашиванием">Не мойте голову в день окрашивания. Если есть аллергия, обязательно сообщите мастеру заранее, чтобы мы подобрали безопасный состав.</Accordion>
+              <Accordion title="После окрашивания">Используйте профессиональные шампуни для окрашенных волос без агрессивных сульфатов. Избегайте горячих укладок, саун и бассейнов в первые 48 часов для закрепления пигмента.</Accordion>
 
-        <h3 className="font-bold text-lg mt-8 mb-4 text-[#a8a39d]">Маникюр</h3>
-        <Accordion title="МЕЖДУ ПРОЦЕДУРАМИ">Увлажняйте кутикулу маслом каждый день. При отслойке не снимайте покрытие самостоятельно.</Accordion>
+              <div className="flex items-center gap-4 mt-12 mb-6">
+                <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[#a8a39d] shadow-sm">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path strokeLinecap="round" strokeLinejoin="round" d="M14.121 7.629A3 3 0 009.005 5.5h-.01c-.13 0-.256.035-.368.096L4 8.243v1.5a3 3 0 001.28 2.457l3.922 2.615a1.5 1.5 0 001.602 0l3.922-2.615A3 3 0 0016 9.743v-1.5l-1.879-2.614z"/><path strokeLinecap="round" strokeLinejoin="round" d="M14.121 7.629l3.535 3.535a3 3 0 010 4.243l-4.243 4.243a3 3 0 01-4.243 0l-4.243-4.243a3 3 0 010-4.243l3.535-3.535"/></svg>
+                </div>
+                <h3 className="font-serif text-2xl text-[#2c2c2c]">Маникюр</h3>
+              </div>
+              
+              <Accordion title="Между процедурами">Регулярно увлажняйте кутикулу маслом или кремом. Выполняйте домашнюю работу в перчатках. При малейшей отслойке не пытайтесь снять покрытие самостоятельно — запишитесь на коррекцию, чтобы не повредить ногтевую пластину.</Accordion>
+            </div>
+          </div>
+        </div>
       </motion.section>
 
       {/* Photo Gallery & Reviews */}
@@ -256,13 +294,16 @@ export default function Home() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
-        className="bg-[#ebdcd4] py-12 px-6"
+        className="bg-[#ebdcd4] py-16 px-6 relative z-10"
       >
-        <h2 className="font-serif text-2xl mb-8 text-center font-bold">Остались вопросы?</h2>
-        <div className="flex flex-col gap-2">
-          <Accordion title="МОЖНО ЛИ ОПЛАТИТЬ ПО СБП?">Да, мы принимаем оплату наличными, по карте и через СБП.</Accordion>
-          <Accordion title="ПОМОЖЕТЕ ЛИ ВЫ ВЫБРАТЬ СТРИЖКУ?">Конечно! Все наши мастера консультируют перед процедурой и помогают подобрать идеальный образ под ваши черты лица.</Accordion>
-          <Accordion title="ЕСТЬ ЛИ У ВАС ПАРКОВКА?">Да, рядом с салоном есть бесплатная общественная парковка.</Accordion>
+        <div className="max-w-3xl mx-auto">
+          <h2 className="font-serif text-3xl md:text-5xl mb-4 text-center">Остались вопросы?</h2>
+          <p className="text-center text-sm md:text-base mb-12 opacity-70 uppercase tracking-widest text-[#2c2c2c]">Частые ответы</p>
+          <div className="flex flex-col gap-1">
+            <Accordion title="Можно ли оплатить по СБП?">Да, мы принимаем оплату наличными, по карте и через СБП. Выбирайте наиболее удобный для вас способ.</Accordion>
+            <Accordion title="Поможете ли вы выбрать стрижку?">Конечно! Все наши мастера проводят подробную консультацию перед процедурой. Мы учтем ваши пожелания, форму лица, структуру волос и стиль жизни, чтобы подобрать идеальный образ.</Accordion>
+            <Accordion title="Есть ли у вас парковка?">Да, рядом с салоном есть бесплатная общественная парковка, где всегда можно найти свободное место.</Accordion>
+          </div>
         </div>
       </motion.section>
 
