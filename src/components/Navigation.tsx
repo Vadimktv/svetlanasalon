@@ -21,9 +21,9 @@ export default function Navigation({ onBookingClick }: { onBookingClick: () => v
   });
 
   const links = [
-    { name: 'Услуги', path: '#services' },
-    { name: 'Портфолио', path: '#gallery' },
-    { name: 'Контакты', path: '#contacts' },
+    { name: 'Услуги', path: '/#services' },
+    { name: 'Портфолио', path: '/#gallery' },
+    { name: 'Контакты', path: '/#contacts' },
   ];
 
   return (
