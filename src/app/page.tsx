@@ -226,12 +226,18 @@ export default function Home() {
       <section id="gallery" className="bg-white py-12 px-6 rounded-t-3xl">
         <h2 className="font-serif text-3xl mb-6 text-center">Фотогалерея</h2>
         
-        {/* Before/After Slider Component */}
-        <div className="w-full h-[350px] bg-[#a8a39d] rounded-xl relative overflow-hidden flex flex-col items-center justify-center text-white/50 text-xs">
-          [ Интерактивный Slider "До / После" ]
-          <div className="absolute top-0 bottom-0 left-1/2 w-1 bg-white/30 cursor-ew-resize flex items-center justify-center">
-             <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg text-black">◄►</div>
-          </div>
+        <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory hide-scrollbar">
+          {[
+            '/portfolio/hair/Женская стрижка.JPG',
+            '/portfolio/hair/Колористика волос.JPG',
+            '/portfolio/hair/Окрашивание волос.JPG',
+            '/portfolio/manicure/classic-manicure.png',
+            '/portfolio/manicure/Комбинированный маникюр.jpg',
+          ].map((src, i) => (
+            <div key={i} className="min-w-[280px] h-[350px] bg-gray-100 rounded-xl overflow-hidden shrink-0 snap-center relative shadow-sm border border-black/5">
+              <img src={src} alt="Работы Светланы" className="w-full h-full object-cover" loading="lazy" />
+            </div>
+          ))}
         </div>
 
         <h2 className="font-serif text-3xl mt-12 mb-6 text-center">Отзывы</h2>
