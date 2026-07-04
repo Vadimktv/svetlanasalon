@@ -64,8 +64,8 @@ export default function Home() {
 
       {/* Promotions Section */}
       <motion.section 
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
         className="pt-16 pb-12 px-6 text-center"
@@ -84,8 +84,8 @@ export default function Home() {
 
       {/* Why Us Section */}
       <motion.section 
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
         className="bg-[#a8a39d] text-white py-16 md:py-24 px-6 relative md:rounded-t-[80px] rounded-t-3xl"
@@ -126,8 +126,8 @@ export default function Home() {
       {/* Services Section */}
       <motion.section 
         id="services" 
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
         className="bg-[#ebdcd4] py-16 md:py-24 px-6"
@@ -162,8 +162,8 @@ export default function Home() {
 
       {/* Recommendations Section */}
       <motion.section 
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
         className="bg-[#ebdcd4] pt-8 pb-12 px-6"
@@ -181,8 +181,8 @@ export default function Home() {
       {/* Photo Gallery & Reviews */}
       <motion.section 
         id="gallery" 
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
         className="bg-white py-16 md:py-24 px-6 rounded-t-3xl md:rounded-t-[80px] text-center shadow-[0_-10px_40px_rgba(0,0,0,0.05)] relative z-20"
@@ -228,8 +228,8 @@ export default function Home() {
 
       {/* FAQ */}
       <motion.section 
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
         className="bg-[#ebdcd4] py-12 px-6"
@@ -245,8 +245,8 @@ export default function Home() {
       {/* Contacts & Footer */}
       <motion.section 
         id="contacts" 
-        initial={{ opacity: 0, y: 10 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
         className="bg-[#2c2c2c] py-16 md:py-24 px-6 text-center md:text-left relative rounded-t-[40px] md:rounded-t-[80px] text-[#ebdcd4] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"

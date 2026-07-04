@@ -64,8 +64,8 @@ export default function PortfolioPage() {
 
           {/* Grid */}
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             key={activeCategory}
             transition={{ duration: 0.4 }}
             className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"
