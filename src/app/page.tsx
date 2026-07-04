@@ -332,11 +332,10 @@ export default function Home() {
         </div>
         
         {/* Real Yandex Map Frame */}
-        <div className="w-full h-[250px] bg-white rounded-3xl overflow-hidden relative shadow-lg">
-          <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A3b140df3f9b2b3a1a1f0a1f0a1f0a1f0a1f0a1f0a1f0a1f0a1f0a1f0a1f0a1f0&amp;source=constructor&amp;ll=38.077222%2C44.561111&amp;z=16" width="100%" height="100%" frameBorder="0" className="absolute inset-0"></iframe>
+        <div className="w-full h-[350px] bg-white rounded-3xl overflow-hidden relative shadow-lg">
+          <iframe src="https://yandex.ru/map-widget/v1/?mode=search&ol=biz&oid=114529011558&sll=38.077222%2C44.561111&z=16" width="100%" height="100%" frameBorder="0" className="absolute inset-0"></iframe>
           
-          {/* Overlay to prevent accidental scrolling inside map when scrolling the page */}
-          <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_20px_rgba(0,0,0,0.1)]"></div>
+          {/* We do NOT put pointer-events-none here because the user wants to click the 'Build Route' button on the map card */}
         </div>
 
         <div className="mt-12 text-[10px] text-[#ebdcd4]/50 tracking-widest uppercase">
