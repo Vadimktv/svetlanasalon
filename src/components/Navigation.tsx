@@ -38,9 +38,7 @@ export default function Navigation({ onBookingClick }: { onBookingClick: () => v
     >
       <div className={`rounded-full px-2 py-2 flex items-center justify-between transition-colors duration-500 border ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-lg border-white/50' : 'bg-transparent border-transparent'}`}>
         <div className="flex items-center gap-3 px-4">
-          <div className="w-10 h-10 rounded-full bg-[#ebdcd4] flex items-center justify-center text-[#333333] font-serif font-bold text-lg shadow-sm border border-[#a8a39d]/20">
-            S
-          </div>
+          <img src="/logo.png" alt="Svetlana Salon" className="w-10 h-10 rounded-full object-cover shadow-sm border border-[#a8a39d]/20" />
           <span className={`font-serif tracking-widest uppercase text-sm hidden md:block transition-colors duration-300 ${isScrolled ? 'text-[#2c2c2c]' : 'text-[#ebdcd4]'}`}>
             SvetlanaSalon
           </span>

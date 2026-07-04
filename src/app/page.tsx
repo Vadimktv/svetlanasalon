@@ -172,9 +172,7 @@ export default function Home() {
       >
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 w-full">
           <div className="flex-1 text-center md:text-left flex flex-col items-center md:items-start">
-            <div className="w-12 h-16 border border-[#ebdcd4] rounded-full mb-6 flex items-center justify-center hidden md:flex">
-              <span className="font-serif italic text-2xl">S</span>
-            </div>
+            <img src="/logo.png" alt="Svetlana Salon Logo" className="w-16 h-16 rounded-full mb-6 object-cover shadow-lg hidden md:block" />
             <h1 className="font-serif text-4xl md:text-6xl tracking-[0.2em] mb-2">SVETLANA</h1>
             <p className="text-xs md:text-sm tracking-widest uppercase opacity-80 mb-8">beauty salon</p>
             <p className="hidden md:block text-base leading-relaxed opacity-90 max-w-md mb-8">
