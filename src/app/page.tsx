@@ -114,7 +114,7 @@ export default function Home() {
   const [isModalOpen, setModalOpen] = useState(false);
 
   return (
-    <main className="w-full max-w-[480px] mx-auto bg-[#ebdcd4] min-h-screen relative shadow-2xl overflow-hidden pb-12">
+    <main className="w-full max-w-[420px] mx-auto bg-[#ebdcd4] min-h-screen md:min-h-[90vh] md:h-[90vh] md:rounded-[45px] relative shadow-[0_20px_70px_rgba(0,0,0,0.8)] overflow-y-auto overflow-x-hidden md:border-[12px] md:border-[#0a0a0a] hide-scrollbar pb-12 z-10">
       <BookingModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
       
       {/* Hero Section */}
