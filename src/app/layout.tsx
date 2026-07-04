@@ -25,10 +25,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`${playfair.variable} ${montserrat.variable} font-sans antialiased bg-[#ebdcd4] md:bg-[#1a1a1a] text-[#2c2c2c] md:flex md:items-center md:justify-center md:min-h-screen relative overflow-hidden`}>
+      <body className={`${playfair.variable} ${montserrat.variable} font-sans antialiased bg-[#ebdcd4] text-[#2c2c2c] min-h-screen relative overflow-x-hidden`}>
         {/* Background decorative elements for desktop */}
-        <div className="hidden md:block absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[#ebdcd4]/10 blur-[100px] rounded-full pointer-events-none"></div>
-        <div className="hidden md:block absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-[#a8a39d]/20 blur-[100px] rounded-full pointer-events-none"></div>
+        <div className="hidden md:block absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-white/20 blur-[120px] rounded-full pointer-events-none z-0"></div>
+        <div className="hidden md:block absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[#a8a39d]/20 blur-[120px] rounded-full pointer-events-none z-0"></div>
         {children}
       </body>
     </html>
