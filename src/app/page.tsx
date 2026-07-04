@@ -46,7 +46,7 @@ function Accordion({ title, children }: { title: string, children: React.ReactNo
 }
 
 export default function Home() {
-  const [activeCategory, setActiveCategory] = useState<'HAIR' | 'NAILS' | 'BROWS' | 'SPA'>('HAIR');
+  const [activeCategory, setActiveCategory] = useState<'HAIR' | 'NAILS' | 'BROWS'>('HAIR');
   const [isModalOpen, setModalOpen] = useState(false);
   const [isReviewModalOpen, setReviewModalOpen] = useState(false);
 
