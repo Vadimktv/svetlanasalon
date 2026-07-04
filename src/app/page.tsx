@@ -185,8 +185,7 @@ export default function Home() {
             {[
               { id: 'HAIR', label: 'ВОЛОСЫ' },
               { id: 'NAILS', label: 'МАНИКЮР' },
-              { id: 'BROWS', label: 'БРОВИ' },
-              { id: 'SPA', label: 'SPA' }
+              { id: 'BROWS', label: 'БРОВИ' }
             ].map(tab => (
               <button 
                 key={tab.id}

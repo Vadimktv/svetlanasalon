@@ -15,6 +15,9 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "SvetlanaSalon | Эстетика и Косметология",
   description: "Премиальный салон красоты в Геленджике",
+  appleWebApp: {
+    title: "SvetlanaSalon",
+  },
   icons: {
     icon: '/icon.svg',
     apple: '/icon.svg',
