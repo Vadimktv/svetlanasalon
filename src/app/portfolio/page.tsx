@@ -5,30 +5,34 @@ import Link from 'next/link';
 
 const PORTFOLIO_DATA = {
   HAIR: [
-    '/portfolio/hair/Женская стрижка.JPG',
-    '/portfolio/hair/Колористика волос.JPG',
-    '/portfolio/hair/Ламинирования волос.JPG',
-    '/portfolio/hair/Мелирование волос.JPG',
-    '/portfolio/hair/Мужская стрижка.JPG',
-    '/portfolio/hair/Окрашивание волос.JPG',
+    '/portfolio/hair/hair1.JPG',
+    '/portfolio/hair/hair2.JPG',
+    '/portfolio/hair/hair3.JPG',
+    '/portfolio/hair/hair4.JPG',
+    '/portfolio/hair/hair5.JPG',
+    '/portfolio/hair/hair6.JPG',
+    '/portfolio/hair/hair7.JPG',
   ],
   NAILS: [
-    '/portfolio/manicure/classic-manicure.png',
-    '/portfolio/manicure/nail_strengthening.png',
-    '/portfolio/manicure/Комбинированный маникюр.jpg',
-    '/portfolio/manicure/Ремонт одного ногтя.jpg',
-    '/portfolio/manicure/Укрепление гелем 00.37.43.JPG',
-    '/portfolio/manicure/Укрепление ногтей базой .jpg',
+    '/portfolio/manicure/manicure1.png',
+    '/portfolio/manicure/manicure2.png',
+    '/portfolio/manicure/manicure3.jpg',
+    '/portfolio/manicure/manicure4.jpg',
+    '/portfolio/manicure/manicure5.jpeg',
+    '/portfolio/manicure/manicure6.jpeg',
+    '/portfolio/manicure/manicure7.JPG',
+    '/portfolio/manicure/manicure8.jpg',
+    '/portfolio/manicure/manicure9.jpeg',
   ],
   BROWS: [
-    '/portfolio/Brovi/violetta-work-1.jpeg',
-    '/portfolio/Brovi/Комплекс бровей.JPG',
-    '/portfolio/Brovi/Коррекция бровей.JPG',
-    '/portfolio/Brovi/Ламинирование бровей.JPG',
-    '/portfolio/Brovi/Окрашивание бровей.JPG',
+    '/portfolio/Brovi/brows1.jpeg',
+    '/portfolio/Brovi/brows2.JPG',
+    '/portfolio/Brovi/brows3.JPG',
+    '/portfolio/Brovi/brows4.JPG',
+    '/portfolio/Brovi/brows5.JPG',
   ],
   SPA: [
-    '/portfolio/spa/SPA процедуры.JPG'
+    '/portfolio/spa/spa1.JPG'
   ]
 };
 

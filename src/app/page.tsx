@@ -229,10 +229,10 @@ export default function Home() {
         
         <div className="grid grid-cols-2 gap-3 mb-6">
           <div className="bg-gray-100 rounded-xl overflow-hidden aspect-[4/5] shadow-sm relative">
-            <img src="/portfolio/hair/Окрашивание волос.JPG" alt="Волосы" className="w-full h-full object-cover" loading="lazy" />
+            <img src="/portfolio/hair/hair6.JPG" alt="Волосы" className="w-full h-full object-cover" loading="lazy" />
           </div>
           <div className="bg-gray-100 rounded-xl overflow-hidden aspect-[4/5] shadow-sm relative">
-            <img src="/portfolio/manicure/classic-manicure.png" alt="Маникюр" className="w-full h-full object-cover" loading="lazy" />
+            <img src="/portfolio/manicure/manicure1.png" alt="Маникюр" className="w-full h-full object-cover" loading="lazy" />
           </div>
         </div>
         
