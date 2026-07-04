@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { BookingModal, SERVICES } from '@/components/BookingModal';
+import { ReviewModal } from '@/components/ReviewModal';
 
 function Accordion({ title, children }: { title: string, children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,6 +48,7 @@ function Accordion({ title, children }: { title: string, children: React.ReactNo
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState<'HAIR' | 'NAILS' | 'BROWS' | 'SPA'>('HAIR');
   const [isModalOpen, setModalOpen] = useState(false);
+  const [isReviewModalOpen, setReviewModalOpen] = useState(false);
 
 
 
@@ -292,19 +294,58 @@ export default function Home() {
             Смотреть всё
           </Link>
 
-        <h2 className="font-serif text-3xl mt-16 mb-6">Отзывы</h2>
-        <div className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm mb-4">
-          <div className="flex items-center gap-3 mb-2">
-            <div className="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center font-bold text-xs">Е</div>
-            <div>
-              <p className="font-bold text-sm">Екатерина С.</p>
-              <p className="text-[10px] text-gray-500">Постоянный клиент</p>
+        <div className="flex flex-col md:flex-row justify-between items-center mt-16 mb-8 gap-4">
+          <h2 className="font-serif text-3xl md:text-5xl m-0">Отзывы</h2>
+          <button onClick={() => setReviewModalOpen(true)} className="border-2 border-[#2c2c2c] text-[#2c2c2c] rounded-full py-3 px-8 text-xs font-bold uppercase tracking-wider hover:bg-[#2c2c2c] hover:text-white transition-all shadow-sm">
+            Оставить отзыв
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+          {/* Отзыв 1 */}
+          <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 bg-[#ebdcd4] rounded-full flex items-center justify-center font-bold text-sm text-[#2c2c2c]">Е</div>
+              <div>
+                <p className="font-bold text-sm">Екатерина С.</p>
+                <p className="text-[10px] text-gray-400 uppercase tracking-wider">Постоянный клиент</p>
+              </div>
             </div>
+            <p className="text-[10px] text-yellow-400 mb-3 tracking-widest">★★★★★</p>
+            <p className="text-sm leading-relaxed text-gray-600">
+              Светлана — волшебница! Нашла идеальный оттенок для моих волос. Салон очень красивый и эстетичный, кофе потрясающий. Обязательно вернусь снова.
+            </p>
           </div>
-          <p className="text-[10px] text-yellow-500 mb-2">★★★★★</p>
-          <p className="text-xs leading-relaxed text-[#2c2c2c]/80">
-            Светлана — волшебница! Нашла идеальный оттенок для моих волос. Салон очень красивый и эстетичный, кофе потрясающий.
-          </p>
+
+          {/* Отзыв 2 */}
+          <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center font-bold text-sm text-[#2c2c2c]">А</div>
+              <div>
+                <p className="font-bold text-sm">Алина М.</p>
+                <p className="text-[10px] text-gray-400 uppercase tracking-wider">Новый клиент</p>
+              </div>
+            </div>
+            <p className="text-[10px] text-yellow-400 mb-3 tracking-widest">★★★★★</p>
+            <p className="text-sm leading-relaxed text-gray-600">
+              Была на маникюре у Анны. Всё очень аккуратно, стерильно и красиво. Большой выбор цветов. Атмосфера в салоне просто супер расслабляющая!
+            </p>
+          </div>
+
+          {/* Отзыв 3 */}
+          <div className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 bg-[#ebdcd4] rounded-full flex items-center justify-center font-bold text-sm text-[#2c2c2c]">М</div>
+              <div>
+                <p className="font-bold text-sm">Мария В.</p>
+                <p className="text-[10px] text-gray-400 uppercase tracking-wider">Постоянный клиент</p>
+              </div>
+            </div>
+            <p className="text-[10px] text-yellow-400 mb-3 tracking-widest">★★★★★</p>
+            <p className="text-sm leading-relaxed text-gray-600">
+              Лучшие брови в городе! Виолетта подобрала идеальную форму и цвет, не перетемнила. Делали ламинирование, держится уже месяц.
+            </p>
+          </div>
         </div>
         </div>
       </motion.section>
@@ -376,6 +417,8 @@ export default function Home() {
         </div>
       </motion.section>
 
+      <BookingModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
+      <ReviewModal isOpen={isReviewModalOpen} onClose={() => setReviewModalOpen(false)} />
     </main>
   );
 }
