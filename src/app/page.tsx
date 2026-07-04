@@ -68,17 +68,25 @@ export default function Home() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
-        className="pt-16 pb-12 px-6 text-center"
+        className="pt-20 pb-16 px-6 text-center"
       >
-        <h2 className="font-serif text-3xl mb-6">Акции</h2>
-        <div className="bg-[#ebdcd4] border border-[#a8a39d] rounded-2xl p-6 shadow-sm mx-auto max-w-[320px]">
-          <p className="font-bold text-lg mb-2">Знакомство с мастером</p>
-          <p className="text-xs uppercase font-medium leading-relaxed mb-4">
-            При первом посещении нашего салона<br/>
-            на любую процедуру у мастера Анны или Виолетты
-          </p>
-          <p className="text-xs italic mb-2">вы получаете скидку</p>
-          <p className="font-bold text-sm">15% на весь чек</p>
+        <div className="bg-white rounded-3xl p-1.5 shadow-xl mx-auto max-w-[640px] hover:scale-[1.02] transition-transform duration-500">
+          <div className="border-2 border-dashed border-[#ebdcd4] rounded-2xl p-8 md:p-12 relative overflow-hidden bg-white">
+            <div className="absolute top-0 right-0 -mr-12 -mt-12 w-40 h-40 bg-[#ebdcd4]/40 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 -ml-12 -mb-12 w-40 h-40 bg-[#ebdcd4]/40 rounded-full blur-3xl"></div>
+            
+            <p className="text-[#a8a39d] text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase mb-4 relative z-10">Специальное предложение</p>
+            <h3 className="font-serif text-3xl md:text-4xl text-[#2c2c2c] mb-4 relative z-10">Знакомство с мастером</h3>
+            
+            <p className="text-sm md:text-base text-[#2c2c2c]/80 leading-relaxed mb-8 relative z-10 max-w-md mx-auto">
+              При первом посещении нашего салона на любую процедуру у мастеров <span className="font-bold text-[#2c2c2c]">Анны</span> или <span className="font-bold text-[#2c2c2c]">Виолетты</span>
+            </p>
+            
+            <div className="inline-block bg-[#333333] text-[#ebdcd4] py-3 px-8 rounded-full relative z-10 shadow-lg">
+              <span className="text-xs uppercase tracking-widest mr-2 opacity-80">Ваша скидка</span>
+              <span className="font-bold text-lg md:text-xl">15% на весь чек</span>
+            </div>
+          </div>
         </div>
       </motion.section>
 
