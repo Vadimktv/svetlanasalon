@@ -382,7 +382,7 @@ export default function Home() {
       >
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center md:items-start">
           
-          <div className="flex-1 flex flex-col items-center md:items-start w-full">
+          <div className="w-full md:w-[35%] flex flex-col items-center md:items-start">
             <h2 className="font-serif text-4xl md:text-5xl mb-8 md:mb-12">Контакты</h2>
             
             <div className="mb-8 md:mb-10 text-center md:text-left">
@@ -405,9 +405,9 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="flex-1 w-full">
+          <div className="w-full md:w-[65%]">
             {/* Real Yandex Map Frame */}
-            <div className="w-full h-[350px] md:h-[450px] bg-white rounded-3xl overflow-hidden relative shadow-lg">
+            <div className="w-full h-[350px] md:h-[400px] bg-white rounded-3xl overflow-hidden relative shadow-lg">
               <iframe src="https://yandex.ru/map-widget/v1/?mode=search&ol=biz&oid=114529011558&sll=38.077222%2C44.561111&z=16" width="100%" height="100%" frameBorder="0" className="absolute inset-0"></iframe>
             </div>
           </div>
