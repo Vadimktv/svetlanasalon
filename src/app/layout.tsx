@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Montserrat } from "next/font/google";
 import "./globals.css";
-import Navigation from "@/components/Navigation";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -15,7 +14,10 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: "SvetlanaSalon | Эстетика и Косметология",
-  description: "Премиальный салон красоты",
+  description: "Премиальный салон красоты в Геленджике",
+  openGraph: {
+    images: ['/ui/svetlana-salon-hero.webp'],
+  }
 };
 
 export default function RootLayout({

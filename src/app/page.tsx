@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Navigation from '@/components/Navigation';
+import { motion } from 'framer-motion';
 
 const SERVICES = {
   HAIR: [
@@ -158,10 +160,16 @@ export default function Home() {
 
   return (
     <main className="w-full bg-[#ebdcd4] min-h-screen relative z-10">
+      <Navigation onBookingClick={() => setModalOpen(true)} />
       <BookingModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
       
       {/* Hero Section */}
-      <section className="bg-[#333333] text-[#ebdcd4] pt-16 pb-12 md:py-32 px-6 flex flex-col items-center justify-center relative z-10 shadow-lg md:rounded-b-[80px] rounded-b-[40px]">
+      <motion.section 
+        initial={{ opacity: 0 }} 
+        animate={{ opacity: 1 }} 
+        transition={{ duration: 1 }}
+        className="bg-[#333333] text-[#ebdcd4] pt-16 pb-12 md:py-32 px-6 flex flex-col items-center justify-center relative z-10 shadow-lg md:rounded-b-[80px] rounded-b-[40px]"
+      >
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 w-full">
           <div className="flex-1 text-center md:text-left flex flex-col items-center md:items-start">
             <div className="w-12 h-16 border border-[#ebdcd4] rounded-full mb-6 flex items-center justify-center hidden md:flex">
@@ -181,10 +189,16 @@ export default function Home() {
             <a href="#contacts" className="w-full border border-[#ebdcd4] text-[#ebdcd4] text-center font-bold text-sm tracking-wider uppercase py-4 rounded-full hover:bg-white/10 transition-colors">АДРЕС</a>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Promotions Section */}
-      <section className="pt-16 pb-12 px-6 text-center">
+      <motion.section 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+        className="pt-16 pb-12 px-6 text-center"
+      >
         <h2 className="font-serif text-3xl mb-6">Акции</h2>
         <div className="bg-[#ebdcd4] border border-[#a8a39d] rounded-2xl p-6 shadow-sm mx-auto max-w-[320px]">
           <p className="font-bold text-lg mb-2">Знакомство с мастером</p>
@@ -195,10 +209,16 @@ export default function Home() {
           <p className="text-xs italic mb-2">вы получаете скидку</p>
           <p className="font-bold text-sm">15% на весь чек</p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Why Us Section */}
-      <section className="bg-[#a8a39d] text-white py-16 md:py-24 px-6 relative md:rounded-t-[80px] rounded-t-3xl">
+      <motion.section 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+        className="bg-[#a8a39d] text-white py-16 md:py-24 px-6 relative md:rounded-t-[80px] rounded-t-3xl"
+      >
         <div className="max-w-5xl mx-auto">
           <h2 className="font-serif text-3xl md:text-5xl mb-2 text-center text-[#2c2c2c]">Почему мы?</h2>
           <p className="text-center text-sm md:text-base mb-12 md:mb-20 text-[#2c2c2c]">Красота без случайностей</p>
@@ -230,10 +250,17 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Services Section */}
-      <section id="services" className="bg-[#ebdcd4] py-16 md:py-24 px-6">
+      <motion.section 
+        id="services" 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+        className="bg-[#ebdcd4] py-16 md:py-24 px-6"
+      >
         <div className="max-w-4xl mx-auto">
           <h2 className="font-serif text-3xl md:text-5xl mb-12 text-center uppercase tracking-widest">Услуги</h2>
           
@@ -260,10 +287,16 @@ export default function Home() {
             ЗАПИСАТЬСЯ
           </button>
         </div>
-      </section>
+      </motion.section>
 
       {/* Recommendations Section */}
-      <section className="bg-[#ebdcd4] pt-8 pb-12 px-6">
+      <motion.section 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+        className="bg-[#ebdcd4] pt-8 pb-12 px-6"
+      >
         <h2 className="font-serif text-2xl mb-8 text-center leading-tight">Рекомендации<br/>до и после</h2>
         
         <h3 className="font-bold text-lg mb-4 text-[#a8a39d]">Окрашивание волос</h3>
@@ -272,10 +305,17 @@ export default function Home() {
 
         <h3 className="font-bold text-lg mt-8 mb-4 text-[#a8a39d]">Маникюр</h3>
         <Accordion title="МЕЖДУ ПРОЦЕДУРАМИ">Увлажняйте кутикулу маслом каждый день. При отслойке не снимайте покрытие самостоятельно.</Accordion>
-      </section>
+      </motion.section>
 
       {/* Photo Gallery & Reviews */}
-      <section id="gallery" className="bg-white py-16 md:py-24 px-6 rounded-t-3xl md:rounded-t-[80px] text-center shadow-[0_-10px_40px_rgba(0,0,0,0.05)] relative z-20">
+      <motion.section 
+        id="gallery" 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+        className="bg-white py-16 md:py-24 px-6 rounded-t-3xl md:rounded-t-[80px] text-center shadow-[0_-10px_40px_rgba(0,0,0,0.05)] relative z-20"
+      >
         <div className="max-w-6xl mx-auto">
           <h2 className="font-serif text-3xl md:text-5xl mb-12">Портфолио</h2>
           
@@ -312,20 +352,33 @@ export default function Home() {
             Светлана — волшебница! Нашла идеальный оттенок для моих волос. Салон очень красивый и эстетичный, кофе потрясающий.
           </p>
         </div>
-      </section>
+      </motion.section>
 
       {/* FAQ */}
-      <section className="bg-[#ebdcd4] py-12 px-6">
+      <motion.section 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+        className="bg-[#ebdcd4] py-12 px-6"
+      >
         <h2 className="font-serif text-2xl mb-8 text-center font-bold">Остались вопросы?</h2>
         <div className="flex flex-col gap-2">
           <Accordion title="МОЖНО ЛИ ОПЛАТИТЬ ПО СБП?">Да, мы принимаем оплату наличными, по карте и через СБП.</Accordion>
           <Accordion title="ПОМОЖЕТЕ ЛИ ВЫ ВЫБРАТЬ СТРИЖКУ?">Конечно! Все наши мастера консультируют перед процедурой и помогают подобрать идеальный образ под ваши черты лица.</Accordion>
           <Accordion title="ЕСТЬ ЛИ У ВАС ПАРКОВКА?">Да, рядом с салоном есть бесплатная общественная парковка.</Accordion>
         </div>
-      </section>
+      </motion.section>
 
       {/* Contacts & Footer */}
-      <section id="contacts" className="bg-[#2c2c2c] py-16 md:py-24 px-6 text-center md:text-left relative rounded-t-[40px] md:rounded-t-[80px] text-[#ebdcd4] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]">
+      <motion.section 
+        id="contacts" 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.6 }}
+        className="bg-[#2c2c2c] py-16 md:py-24 px-6 text-center md:text-left relative rounded-t-[40px] md:rounded-t-[80px] text-[#ebdcd4] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
+      >
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-center md:items-start">
           
           <div className="flex-1 flex flex-col items-center md:items-start w-full">
@@ -363,7 +416,7 @@ export default function Home() {
         <div className="mt-16 text-[10px] text-[#ebdcd4]/50 tracking-widest uppercase text-center w-full border-t border-white/10 pt-8">
           © 2026 Svetlana Beauty Salon
         </div>
-      </section>
+      </motion.section>
 
     </main>
   );
