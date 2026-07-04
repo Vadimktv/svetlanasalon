@@ -193,7 +193,7 @@ export default function Home() {
 
       {/* Promotions Section */}
       <motion.section 
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
@@ -213,7 +213,7 @@ export default function Home() {
 
       {/* Why Us Section */}
       <motion.section 
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
@@ -255,7 +255,7 @@ export default function Home() {
       {/* Services Section */}
       <motion.section 
         id="services" 
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
@@ -291,7 +291,7 @@ export default function Home() {
 
       {/* Recommendations Section */}
       <motion.section 
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
@@ -310,7 +310,7 @@ export default function Home() {
       {/* Photo Gallery & Reviews */}
       <motion.section 
         id="gallery" 
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
@@ -357,7 +357,7 @@ export default function Home() {
 
       {/* FAQ */}
       <motion.section 
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
@@ -374,7 +374,7 @@ export default function Home() {
       {/* Contacts & Footer */}
       <motion.section 
         id="contacts" 
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}

@@ -34,7 +34,7 @@ export default function Navigation({ onBookingClick }: { onBookingClick: () => v
       }}
       animate={hidden ? "hidden" : "visible"}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-4xl transition-all duration-300 ${isScrolled ? 'top-4' : 'top-6'}`}
+      className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-4xl"
     >
       <div className={`rounded-full px-2 py-2 flex items-center justify-between transition-colors duration-500 border ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-lg border-white/50' : 'bg-transparent border-transparent'}`}>
         <div className="flex items-center gap-3 px-4">
