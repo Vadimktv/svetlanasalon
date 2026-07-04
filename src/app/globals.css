@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-beige: #ebdcd4;
+  --color-bg-taupe: #a8a39d;
+  --color-bg-dark: #333333;
+  --color-text-dark: #2c2c2c;
+  --color-text-light: #ffffff;
+  
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-montserrat);
+}
+
+:root {
+  --background: #ebdcd4;
+  --foreground: #2c2c2c;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--font-serif), serif;
+}
+
+.curved-bottom {
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.pill-btn {
+  @apply w-full max-w-[280px] bg-[#ebdcd4] text-[#2c2c2c] font-bold text-sm tracking-wider uppercase py-4 px-6 rounded-full shadow-md text-center mx-auto block mb-4;
+}
+
+.accordion-title {
+  @apply flex items-center justify-between font-bold text-sm uppercase bg-white py-3 px-4 rounded-lg shadow-sm mb-2;
+}
