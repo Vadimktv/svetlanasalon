@@ -88,36 +88,36 @@ export default function Home() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
-        className="bg-[#a8a39d] text-white py-16 md:py-24 px-6 relative md:rounded-t-[80px] rounded-t-3xl"
+        className="bg-[#2c2c2c] py-16 md:py-24 px-6 relative md:rounded-t-[80px] rounded-t-3xl text-[#ebdcd4] shadow-[0_-10px_40px_rgba(0,0,0,0.1)]"
       >
         <div className="max-w-5xl mx-auto">
-          <h2 className="font-serif text-3xl md:text-5xl mb-2 text-center text-[#2c2c2c]">Почему мы?</h2>
-          <p className="text-center text-sm md:text-base mb-12 md:mb-20 text-[#2c2c2c]">Красота без случайностей</p>
+          <h2 className="font-serif text-3xl md:text-5xl mb-4 text-center">Почему мы?</h2>
+          <p className="text-center text-sm md:text-base mb-12 md:mb-20 opacity-70 uppercase tracking-widest">Красота без случайностей</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-16">
             {[
               { title: 'Консультация перед процедурой', desc: 'Честные рекомендации по уходу и подбору образа.' },
               { title: 'Стерильность и аккуратность', desc: 'Премиальные материалы и строгие нормы дезинфекции.' },
               { title: 'Без суеты и ожиданий', desc: 'Удобная онлайн-запись, где администратор всё подтверждает лично.' },
               { title: 'Сервис высшего класса', desc: 'Чай, кофе и забота в каждой детали визита.' }
             ].map((item, i) => (
-              <div key={i} className="flex gap-6 items-start bg-white/5 p-6 rounded-3xl hover:bg-white/10 transition-colors">
-                <div className="min-w-[48px] h-[48px] bg-white/20 rounded-full flex items-center justify-center shrink-0">
-                  <span className="text-2xl">✨</span>
+              <div key={i} className="flex gap-6 items-start bg-white/5 border border-white/10 p-8 rounded-3xl hover:bg-white/10 transition-colors shadow-lg">
+                <div className="min-w-[48px] h-[48px] bg-[#ebdcd4]/20 rounded-full flex items-center justify-center shrink-0 border border-[#ebdcd4]/30">
+                  <span className="text-xl">✨</span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-[#2c2c2c] text-lg mb-2">{item.title}</h3>
-                  <p className="text-sm text-[#2c2c2c]/80 leading-relaxed">{item.desc}</p>
+                  <h3 className="font-bold text-lg mb-2">{item.title}</h3>
+                  <p className="text-sm opacity-80 leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="flex items-center gap-6 bg-white/10 p-6 rounded-full max-w-[400px] mx-auto border border-white/20">
-            <img src="/ui/svetlana-salon-hero.webp" alt="Светлана" className="w-20 h-20 rounded-full object-cover shrink-0 shadow-lg" />
+          <div className="flex items-center gap-6 bg-white/5 p-6 rounded-full max-w-[400px] mx-auto border border-white/10 shadow-lg hover:bg-white/10 transition-colors cursor-default">
+            <img src="/ui/svetlana-salon-hero.webp" alt="Светлана" className="w-20 h-20 rounded-full object-cover shrink-0 border-2 border-[#ebdcd4]/50 shadow-md" />
             <div>
-              <h4 className="font-serif text-xl leading-none mb-2 text-[#2c2c2c]">Светлана</h4>
-              <p className="text-xs uppercase tracking-widest text-[#2c2c2c]">Топ-стилист / основатель</p>
+              <h4 className="font-serif text-xl leading-none mb-2">Светлана</h4>
+              <p className="text-xs uppercase tracking-widest opacity-70">Топ-стилист / основатель</p>
             </div>
           </div>
         </div>
