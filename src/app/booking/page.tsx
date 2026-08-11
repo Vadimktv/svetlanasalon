@@ -31,7 +31,8 @@ export default function BookingPage() {
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setStatus('Отправляем заявку…');
-    const data = Object.fromEntries(new FormData(event.currentTarget).entries());
+    const form = event.currentTarget;
+    const data = Object.fromEntries(new FormData(form).entries());
     try {
       const response = await fetch('/api/booking', {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data),
@@ -39,7 +40,7 @@ export default function BookingPage() {
       const result = await response.json();
       if (!result.success) throw new Error(result.error);
       setStatus('Готово! Администратор подтвердит запись в ближайшее время.');
-      event.currentTarget.reset();
+      form.reset();
     } catch {
       setStatus('Не удалось отправить заявку. Попробуйте ещё раз или напишите нам в Telegram.');
     }
