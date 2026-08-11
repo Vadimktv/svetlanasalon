@@ -304,7 +304,7 @@ export default function Home() {
       <section className="bg-[#fffdf9] px-6 py-16 md:py-24 relative z-10">
         <div className="mx-auto grid max-w-5xl gap-8 overflow-hidden rounded-[2.5rem] bg-[#29211c] p-8 text-[#f7f1e8] shadow-2xl md:grid-cols-[1.25fr_.75fr] md:p-14">
           <div><p className="text-[10px] font-bold uppercase tracking-[.22em] text-[#dfcaa4]">Подарок с заботой</p><h2 className="mt-4 font-serif text-4xl leading-tight md:text-6xl">Сертификат на красоту</h2><p className="mt-5 max-w-xl text-sm leading-relaxed text-[#f7f1e8]/75">Подберите процедуру или сумму вместе с администратором — без оплаты на сайте и лишней спешки.</p></div>
-          <div className="flex flex-col justify-end gap-3"><a href="https://t.me/SvetSalonPro" target="_blank" rel="noreferrer" className="gold-button rounded-full px-6 py-4 text-center text-xs font-bold uppercase tracking-[.15em] text-white transition-transform hover:-translate-y-0.5">Уточнить сертификат</a><a href="tel:+79282806294" className="rounded-full border border-[#dfcaa4]/50 px-6 py-4 text-center text-xs font-bold uppercase tracking-[.15em] text-[#f7f1e8]">Позвонить администратору</a></div>
+          <div className="flex flex-col justify-end gap-3"><a href="https://wa.me/79282806294" target="_blank" rel="noreferrer" className="gold-button rounded-full px-6 py-4 text-center text-xs font-bold uppercase tracking-[.15em] text-white transition-transform hover:-translate-y-0.5">Уточнить сертификат в WhatsApp</a><a href="tel:+79282806294" className="rounded-full border border-[#dfcaa4]/50 px-6 py-4 text-center text-xs font-bold uppercase tracking-[.15em] text-[#f7f1e8]">Позвонить администратору</a></div>
         </div>
       </section>
 
