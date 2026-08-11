@@ -20,6 +20,7 @@ export default function BookingPage() {
   const [userName, setUserName] = useState('');
   const [phone, setPhone] = useState('');
   const [appointments, setAppointments] = useState<Appointment[]>([]);
+  const [bonusBalance, setBonusBalance] = useState<number | null>(null);
 
   const selectedMaster = masters.find((master) => String(master.id) === masterId);
   const selectedService = services.find((service) => String(service.id) === serviceId);
@@ -35,6 +36,7 @@ export default function BookingPage() {
     const response = await fetch('/api/salon/appointments');
     if (response.ok) setAppointments((await response.json()).appointments || []);
   }
+  async function loadBonuses() { const response = await fetch('/api/salon/bonuses'); if (response.ok) setBonusBalance((await response.json()).available); }
 
   useEffect(() => {
     fetch('/api/salon/catalog').then((response) => response.json()).then((data) => {
@@ -46,7 +48,7 @@ export default function BookingPage() {
       if (webApp.initData) {
         fetch('/api/salon/session', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ init_data: webApp.initData }) })
           .then((response) => response.ok ? response.json() : null)
-          .then((data) => { if (data?.user) { setUserName(data.user.first_name || ''); setPhone(data.user.phone || ''); loadAppointments(); } });
+          .then((data) => { if (data?.user) { setUserName(data.user.first_name || ''); setPhone(data.user.phone || ''); loadAppointments(); loadBonuses(); } });
       }
     }
   }, []);
@@ -85,7 +87,7 @@ export default function BookingPage() {
 
   return <main className="min-h-screen bg-[#f7f1e8] text-[#29211c] px-4 py-5 sm:py-8"><div className="mx-auto max-w-[520px]">
     <header className="rounded-[2rem] bg-[#29211c] text-[#f7f1e8] p-7 sm:p-9 relative overflow-hidden shadow-xl"><div className="absolute inset-0 luxury-grid opacity-25" /><div className="relative flex items-center gap-4"><img src="/logo.png" alt="Svetlana Salon" className="h-14 w-14 rounded-full object-cover border border-[#dfcaa4]/50" /><div><p className="text-[10px] uppercase tracking-[.2em] text-[#dfcaa4]">Svetlana Salon</p><h1 className="font-serif text-3xl">Запись на красоту</h1></div></div><p className="relative mt-6 text-sm leading-relaxed text-[#f7f1e8]/75">Выберите мастера, услугу и свободное время. Окно бронируется сразу.</p></header>
-    {userName && <section className="mt-4 rounded-[2rem] border border-[#dfcaa4]/35 bg-[#fffdf9] p-5"><p className="font-serif text-xl">Здравствуйте, {userName}</p><p className="mt-1 text-sm text-[#7d6447]">Ваши записи из Telegram</p>{appointments.length ? <div className="mt-3 space-y-2">{appointments.map((item) => <div key={item.id} className="rounded-xl bg-[#f8f3eb] p-3 text-sm"><b>{item.appointment_date} · {item.appointment_time}</b><br />{item.master_name} · {item.service_name}<button type="button" onClick={() => cancel(item.id)} className="mt-2 block text-xs font-bold text-red-700">Отменить</button></div>)}</div> : <p className="mt-3 text-sm text-[#7d6447]">Активных записей пока нет.</p>}</section>}
+    {userName && <section className="mt-4 rounded-[2rem] border border-[#dfcaa4]/35 bg-[#fffdf9] p-5"><p className="font-serif text-xl">Здравствуйте, {userName}</p>{bonusBalance !== null && <p className="mt-1 text-sm text-[#7d6447]">🎁 Доступно бонусов: <b>{bonusBalance} ₽</b></p>}<p className="mt-1 text-sm text-[#7d6447]">Ваши записи из Telegram</p>{appointments.length ? <div className="mt-3 space-y-2">{appointments.map((item) => <div key={item.id} className="rounded-xl bg-[#f8f3eb] p-3 text-sm"><b>{item.appointment_date} · {item.appointment_time}</b><br />{item.master_name} · {item.service_name}<button type="button" onClick={() => cancel(item.id)} className="mt-2 block text-xs font-bold text-red-700">Отменить</button></div>)}</div> : <p className="mt-3 text-sm text-[#7d6447]">Активных записей пока нет.</p>}</section>}
     <form onSubmit={submit} className="mt-4 rounded-[2rem] bg-[#fffdf9] p-6 sm:p-8 shadow-[0_15px_45px_rgba(69,45,22,.1)] border border-[#dfcaa4]/35 space-y-4">
       <Field label="Ваше имя"><input name="name" required value={userName} onChange={(event) => setUserName(event.target.value)} placeholder="Как к вам обращаться" /></Field><Field label="Телефон"><input name="phone" type="tel" required value={phone} onChange={(event) => setPhone(event.target.value)} placeholder="+7 928 000-00-00" /></Field>
       <Field label="Мастер"><select required value={masterId} onChange={(event) => setMasterId(event.target.value)}><option value="" disabled>Выберите мастера</option>{masters.map((master) => <option key={master.id} value={master.id}>{master.name}</option>)}</select></Field>
