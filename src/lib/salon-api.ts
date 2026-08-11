@@ -15,7 +15,7 @@ export async function salonApi(path: string, init: RequestInit = {}) {
   return fetch(`${baseUrl}${path}`, { ...init, headers, cache: 'no-store' });
 }
 
-export type TelegramSession = { id: number; first_name: string; username?: string };
+export type TelegramSession = { id: number; first_name: string; username?: string; phone?: string | null };
 
 export function signSession(session: TelegramSession) {
   const payload = Buffer.from(JSON.stringify(session)).toString('base64url');
