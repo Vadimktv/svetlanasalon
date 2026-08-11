@@ -45,6 +45,12 @@ function Accordion({ title, children }: { title: string, children: React.ReactNo
   );
 }
 
+const MASTERS_SHOWCASE = [
+  { name: 'Светлана', role: 'Волосы', specialties: 'Стрижки, окрашивание, уход', image: '/masters/svetlana.webp', category: 'hair', booking: 'Светлана (Топ-стилист)' },
+  { name: 'Анна', role: 'Маникюр', specialties: 'Маникюр, покрытие, укрепление', image: '/masters/anna.webp', category: 'nails', booking: 'Анна (Маникюр)' },
+  { name: 'Виолетта', role: 'Брови', specialties: 'Коррекция, окрашивание, ламинирование', image: '/masters/violetta.webp', category: 'brows', booking: 'Виолетта (Брови)' },
+];
+
 export default function Home() {
   const [activeCategory, setActiveCategory] = useState<'HAIR' | 'NAILS' | 'BROWS'>('HAIR');
   const [isModalOpen, setModalOpen] = useState(false);
@@ -182,6 +188,25 @@ export default function Home() {
         </div>
       </motion.section>
 
+      <section className="bg-[#f7f1e8] px-6 py-20 md:py-28 relative z-10">
+        <div className="mx-auto max-w-6xl">
+          <div className="mb-11 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div><p className="text-[10px] font-bold uppercase tracking-[.22em] text-[#af8750]">Команда салона</p><h2 className="mt-3 font-serif text-4xl md:text-6xl text-[#29211c]">Выберите своего мастера</h2></div>
+            <p className="max-w-sm text-sm leading-relaxed text-[#6d5a45]">Выберите направление, посмотрите работы и сразу перейдите к записи.</p>
+          </div>
+          <div className="grid gap-5 md:grid-cols-3">
+            {MASTERS_SHOWCASE.map((master) => (
+              <article key={master.name} className="group overflow-hidden rounded-[2rem] border border-[#dfcaa4]/45 bg-[#fffdf9] shadow-[0_16px_35px_rgba(69,45,22,.08)]">
+                <div className="aspect-[4/4.15] overflow-hidden bg-[#eadfce]"><img src={master.image} alt={master.name} className="h-full w-full object-cover transition duration-700 group-hover:scale-105" /></div>
+                <div className="p-6"><p className="text-[10px] font-bold uppercase tracking-[.18em] text-[#af8750]">{master.role}</p><h3 className="mt-2 font-serif text-3xl">{master.name}</h3><p className="mt-2 text-sm leading-relaxed text-[#6d5a45]">{master.specialties}</p>
+                  <div className="mt-5 flex gap-3"><Link href={`/portfolio?category=${master.category}`} className="text-xs font-bold uppercase tracking-wider text-[#805d2e] hover:text-[#29211c]">Работы</Link><Link href={`/booking?master=${encodeURIComponent(master.booking)}`} className="text-xs font-bold uppercase tracking-wider text-[#805d2e] hover:text-[#29211c]">Записаться →</Link></div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Services Section */}
       <motion.section 
         id="services" 
@@ -276,6 +301,13 @@ export default function Home() {
         </div>
       </motion.section>
 
+      <section className="bg-[#fffdf9] px-6 py-16 md:py-24 relative z-10">
+        <div className="mx-auto grid max-w-5xl gap-8 overflow-hidden rounded-[2.5rem] bg-[#29211c] p-8 text-[#f7f1e8] shadow-2xl md:grid-cols-[1.25fr_.75fr] md:p-14">
+          <div><p className="text-[10px] font-bold uppercase tracking-[.22em] text-[#dfcaa4]">Подарок с заботой</p><h2 className="mt-4 font-serif text-4xl leading-tight md:text-6xl">Сертификат на красоту</h2><p className="mt-5 max-w-xl text-sm leading-relaxed text-[#f7f1e8]/75">Подберите процедуру или сумму вместе с администратором — без оплаты на сайте и лишней спешки.</p></div>
+          <div className="flex flex-col justify-end gap-3"><a href="https://t.me/SvetSalonPro" target="_blank" rel="noreferrer" className="gold-button rounded-full px-6 py-4 text-center text-xs font-bold uppercase tracking-[.15em] text-white transition-transform hover:-translate-y-0.5">Уточнить сертификат</a><a href="tel:+79282806294" className="rounded-full border border-[#dfcaa4]/50 px-6 py-4 text-center text-xs font-bold uppercase tracking-[.15em] text-[#f7f1e8]">Позвонить администратору</a></div>
+        </div>
+      </section>
+
       {/* Photo Gallery & Reviews */}
       <motion.section 
         id="gallery" 
@@ -313,6 +345,8 @@ export default function Home() {
             Оставить отзыв
           </button>
         </div>
+
+        <a href="https://yandex.ru/medicine/clinic/svetsalonpro_114529011558" target="_blank" rel="noreferrer" className="mb-8 inline-flex rounded-full border border-[#af8750]/50 px-5 py-3 text-[10px] font-bold uppercase tracking-[.14em] text-[#805d2e] transition hover:bg-[#f7f1e8]">Отзывы на Яндекс Картах →</a>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
           {/* Отзыв 1 */}
@@ -404,6 +438,12 @@ export default function Home() {
             <div className="mb-10 text-center md:text-left">
               <p className="text-xs uppercase tracking-widest text-[#a8a39d] mb-3">Телефон</p>
               <p className="font-serif text-3xl md:text-4xl tracking-wide">+7 (928) 280-62-94</p>
+            </div>
+
+            <div className="mb-10 grid gap-4 text-center md:text-left">
+              <div><p className="text-xs uppercase tracking-widest text-[#a8a39d] mb-2">Режим работы</p><p className="font-medium">Ежедневно · 10:00–18:00</p></div>
+              <div><p className="text-xs uppercase tracking-widest text-[#a8a39d] mb-2">Парковка</p><p className="text-sm leading-relaxed text-[#ebdcd4]/75">Парковка доступна рядом с салоном. Свободное место лучше уточнить у администратора.</p></div>
+              <div className="flex flex-wrap justify-center gap-3 md:justify-start"><a href="https://yandex.ru/maps/org/svetsalonpro/114529011558/" target="_blank" rel="noreferrer" className="rounded-full border border-[#dfcaa4]/50 px-4 py-3 text-[10px] font-bold uppercase tracking-wider hover:bg-white/10">Маршрут на карте</a><a href="tel:+79282806294" className="rounded-full border border-[#dfcaa4]/50 px-4 py-3 text-[10px] font-bold uppercase tracking-wider hover:bg-white/10">Уточнить парковку</a></div>
             </div>
             
             <div className="flex justify-center md:justify-start gap-4 mb-12 w-full">

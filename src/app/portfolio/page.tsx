@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Navigation from '@/components/Navigation';
 import { BookingModal } from '@/components/BookingModal';
 import { motion } from 'framer-motion';
@@ -38,6 +38,14 @@ const PORTFOLIO_DATA = {
 export default function PortfolioPage() {
   const [activeCategory, setActiveCategory] = useState<'HAIR' | 'NAILS' | 'BROWS' | 'SPA'>('HAIR');
   const [isModalOpen, setModalOpen] = useState(false);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      const category = new URLSearchParams(window.location.search).get('category')?.toUpperCase();
+      if (category === 'HAIR' || category === 'NAILS' || category === 'BROWS' || category === 'SPA') setActiveCategory(category);
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   return (
     <main className="w-full min-h-screen bg-[#f7f1e8] relative z-10 overflow-x-hidden">

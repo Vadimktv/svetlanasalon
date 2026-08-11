@@ -11,12 +11,21 @@ declare global {
 
 export default function BookingPage() {
   const [status, setStatus] = useState('');
+  const [master, setMaster] = useState('');
   useEffect(() => {
     const webApp = window.Telegram?.WebApp;
     if (webApp) {
       webApp.ready();
       webApp.expand();
     }
+  }, []);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      const requestedMaster = new URLSearchParams(window.location.search).get('master');
+      if (requestedMaster && MASTERS.includes(requestedMaster)) setMaster(requestedMaster);
+    }, 0);
+    return () => window.clearTimeout(timer);
   }, []);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
@@ -52,7 +61,7 @@ export default function BookingPage() {
           <Field label="Ваше имя"><input name="name" required placeholder="Как к вам обращаться" /></Field>
           <Field label="Телефон"><input name="phone" type="tel" required placeholder="+7 928 000-00-00" /></Field>
           <Field label="Услуга"><select name="service" required defaultValue=""><option value="" disabled>Выберите услугу</option>{Object.values(SERVICES).flat().map((service) => <option key={service.name} value={service.name}>{service.name} — {service.price}</option>)}</select></Field>
-          <Field label="Мастер"><select name="master" required defaultValue=""><option value="" disabled>Выберите мастера</option>{MASTERS.map((master) => <option key={master}>{master}</option>)}</select></Field>
+          <Field label="Мастер"><select name="master" required value={master} onChange={(event) => setMaster(event.target.value)}><option value="" disabled>Выберите мастера</option>{MASTERS.map((item) => <option key={item}>{item}</option>)}</select></Field>
           <div className="grid grid-cols-2 gap-3"><Field label="Дата"><input name="date" type="date" /></Field><Field label="Время"><input name="time" type="time" /></Field></div>
           <Field label="Комментарий"><textarea name="comment" rows={3} placeholder="Например, хочу после 18:00" /></Field>
           <button className="gold-button w-full rounded-2xl py-4 text-xs font-bold uppercase tracking-[.16em] text-white transition-transform hover:-translate-y-0.5">Отправить заявку</button>
