@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useState } from 'react';
 
@@ -40,7 +39,7 @@ export default function Navigation({ onBookingClick }: { onBookingClick: () => v
         <div className="flex items-center gap-2 px-2 md:px-4 shrink-0">
           <img src="/logo.png" alt="Svetlana Salon" className="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover shadow-sm border border-[#a8a39d]/20" />
           <span className={`font-serif tracking-widest uppercase text-sm hidden md:block transition-colors duration-300 ${isScrolled ? 'text-[#2c2c2c]' : 'text-[#ebdcd4]'}`}>
-            SvetlanaSalon
+            Svetlana Salon
           </span>
         </div>
         
@@ -59,7 +58,7 @@ export default function Navigation({ onBookingClick }: { onBookingClick: () => v
           
           <button 
             onClick={onBookingClick}
-            className="hidden md:block ml-2 px-6 py-2.5 rounded-full bg-[#333333] text-[#ebdcd4] text-xs font-bold uppercase tracking-wider hover:bg-black transition-colors duration-300 shadow-md shrink-0"
+            className="hidden md:block ml-2 px-6 py-2.5 rounded-full gold-button text-white text-xs font-bold uppercase tracking-wider hover:-translate-y-0.5 transition-all duration-300 shrink-0"
           >
             Записаться
           </button>

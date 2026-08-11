@@ -53,7 +53,7 @@ export default function Home() {
 
 
   return (
-    <main className="w-full bg-[#ebdcd4] min-h-screen relative z-10">
+    <main className="w-full bg-[#f7f1e8] min-h-screen relative z-10">
       <Navigation onBookingClick={() => setModalOpen(true)} />
       <BookingModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
       
@@ -62,23 +62,37 @@ export default function Home() {
         initial={{ opacity: 0 }} 
         animate={{ opacity: 1 }} 
         transition={{ duration: 1 }}
-        className="bg-[#333333] text-[#ebdcd4] pt-28 pb-12 md:py-32 px-6 flex flex-col items-center justify-center relative z-10 shadow-lg md:rounded-b-[80px] rounded-b-[40px]"
+        className="bg-[#29211c] text-[#f7f1e8] pt-28 pb-14 md:pt-36 md:pb-24 px-6 flex flex-col items-center justify-center relative z-10 overflow-hidden shadow-lg md:rounded-b-[80px] rounded-b-[40px]"
       >
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12 w-full">
+        <div className="absolute inset-0 opacity-25 luxury-grid" />
+        <div className="absolute -right-24 top-16 h-80 w-80 rounded-full border border-[#dfcaa4]/30" />
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 lg:gap-20 w-full relative">
           <div className="flex-1 text-center md:text-left flex flex-col items-center md:items-start">
-            <img src="/logo.png" alt="Svetlana Salon Logo" className="w-16 h-16 rounded-full mb-6 object-cover shadow-lg hidden md:block" />
-            <h1 className="font-serif text-4xl md:text-6xl tracking-[0.2em] mb-2">SVETLANA</h1>
-            <p className="text-[10px] md:text-sm tracking-widest uppercase opacity-80 mb-8 text-[#a8a39d]">Эстетика и косметология</p>
-            <p className="hidden md:block text-base leading-relaxed opacity-90 max-w-md mb-8">
-              Уютный салон красоты в Геленджике. Мы подчеркиваем вашу естественную красоту, создавая идеальные образы с любовью к каждой детали.
+            <div className="flex items-center gap-3 mb-7">
+              <span className="h-px w-10 bg-[#dfcaa4]" />
+              <p className="text-[10px] tracking-[0.28em] uppercase text-[#dfcaa4]">Геленджик · с заботой о вас</p>
+            </div>
+            <h1 className="font-serif text-5xl leading-[.95] md:text-7xl lg:text-8xl mb-5">Красота,<br/><em className="text-[#dfcaa4]">в которой вы</em><br/>собой.</h1>
+            <p className="text-sm leading-relaxed opacity-80 max-w-md mb-8">
+              Персональный ритуал красоты: точная работа мастера, спокойная атмосфера и внимание к каждой детали.
             </p>
+            <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+              <button onClick={() => setModalOpen(true)} className="gold-button text-white font-bold text-xs tracking-[0.16em] uppercase py-4 px-7 rounded-full hover:-translate-y-0.5 transition-all">Записаться онлайн</button>
+              <a href="#services" className="border border-[#dfcaa4]/60 text-[#f7f1e8] text-center font-bold text-xs tracking-[0.16em] uppercase py-4 px-7 rounded-full hover:bg-white/10 transition-colors">Выбрать услугу</a>
+            </div>
+            <div className="mt-10 flex gap-7 text-left">
+              <div><strong className="font-serif text-2xl text-[#dfcaa4]">10+</strong><span className="block text-[9px] tracking-widest uppercase opacity-60">лет опыта</span></div>
+              <div><strong className="font-serif text-2xl text-[#dfcaa4]">4.9</strong><span className="block text-[9px] tracking-widest uppercase opacity-60">рейтинг гостей</span></div>
+            </div>
           </div>
-
-          <div className="flex-1 w-full max-w-sm flex flex-col gap-4">
-            <button onClick={() => setModalOpen(true)} className="w-full bg-[#ebdcd4] text-[#333333] font-bold text-sm tracking-wider uppercase py-4 rounded-full hover:bg-white transition-colors shadow-lg">ОНЛАЙН ЗАПИСЬ</button>
-            <a href="#services" className="w-full border border-[#ebdcd4] text-[#ebdcd4] text-center font-bold text-sm tracking-wider uppercase py-4 rounded-full hover:bg-white/10 transition-colors">УСЛУГИ</a>
-            <Link href="/portfolio" className="w-full border border-[#ebdcd4] text-[#ebdcd4] text-center font-bold text-sm tracking-wider uppercase py-4 rounded-full hover:bg-white/10 transition-colors">ФОТО РАБОТ</Link>
-            <a href="#contacts" className="w-full border border-[#ebdcd4] text-[#ebdcd4] text-center font-bold text-sm tracking-wider uppercase py-4 rounded-full hover:bg-white/10 transition-colors">АДРЕС</a>
+          <div className="flex-1 w-full max-w-[440px] relative">
+            <div className="absolute -inset-3 border border-[#dfcaa4]/40 rounded-[2.5rem] -rotate-3 float-soft" />
+            <div className="relative aspect-[4/5] overflow-hidden rounded-[2.35rem] border border-white/20 shadow-2xl">
+              <img src="/ui/svetlana-salon-hero.webp" alt="Светлана — основатель салона" className="h-full w-full object-cover" />
+              <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/75 to-transparent">
+                <p className="font-serif text-2xl">Светлана</p><p className="text-[10px] uppercase tracking-[.18em] text-[#dfcaa4]">основатель · топ-стилист</p>
+              </div>
+            </div>
           </div>
         </div>
       </motion.section>
@@ -182,14 +196,14 @@ export default function Home() {
           
           {/* Main Tabs */}
           <div className="flex flex-wrap justify-center gap-3 mb-10">
-            {[
+            {([
               { id: 'HAIR', label: 'ВОЛОСЫ' },
               { id: 'NAILS', label: 'МАНИКЮР' },
               { id: 'BROWS', label: 'БРОВИ' }
-            ].map(tab => (
+            ] as const).map(tab => (
               <button 
                 key={tab.id}
-                onClick={() => setActiveCategory(tab.id as any)} 
+                onClick={() => setActiveCategory(tab.id)}
                 className={`py-3 px-6 md:px-8 rounded-full text-[10px] md:text-xs font-bold tracking-wider transition-all duration-300 ${activeCategory === tab.id ? 'bg-[#333333] text-[#ebdcd4] shadow-[0_5px_15px_rgba(0,0,0,0.2)] scale-105' : 'bg-white/40 text-[#2c2c2c]/70 hover:bg-white hover:text-[#2c2c2c] hover:shadow-sm hover:scale-105'}`}
               >
                 {tab.label}

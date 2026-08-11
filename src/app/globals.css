@@ -7,13 +7,19 @@
   --color-text-dark: #2c2c2c;
   --color-text-light: #ffffff;
   
-  --font-serif: var(--font-playfair);
-  --font-sans: var(--font-montserrat);
+  --font-serif: Georgia, 'Times New Roman', serif;
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 :root {
-  --background: #ebdcd4;
-  --foreground: #2c2c2c;
+  --background: #f7f1e8;
+  --foreground: #29211c;
+  --cream: #f7f1e8;
+  --paper: #fffdf9;
+  --ink: #29211c;
+  --gold: #af8750;
+  --gold-soft: #dfcaa4;
+  --line: rgba(88, 65, 37, 0.14);
 }
 
 body {
@@ -34,4 +40,29 @@ h1, h2, h3, h4, .font-serif {
 
 .pill-btn {
   @apply w-full max-w-[280px] bg-[#ebdcd4] text-[#2c2c2c] font-bold text-sm tracking-wider uppercase py-4 px-6 rounded-full shadow-md text-center mx-auto block mb-4;
+}
+
+::selection { background: #dfcaa4; color: #29211c; }
+
+.luxury-grid {
+  background-image: linear-gradient(rgba(175, 135, 80, .08) 1px, transparent 1px), linear-gradient(90deg, rgba(175, 135, 80, .08) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.gold-button {
+  background: linear-gradient(135deg, #bf9a61, #8d6533);
+  box-shadow: 0 16px 35px rgba(103, 70, 29, .25);
+}
+
+.gold-button:hover { box-shadow: 0 20px 42px rgba(103, 70, 29, .34); }
+
+@keyframes float-soft {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(1deg); }
+}
+
+.float-soft { animation: float-soft 7s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
