@@ -78,9 +78,9 @@ export default function Home() {
               <span className="h-px w-10 bg-[#dfcaa4]" />
               <p className="text-[10px] tracking-[0.28em] uppercase text-[#dfcaa4]">Геленджик · с заботой о вас</p>
             </div>
-            <h1 className="font-serif text-5xl leading-[.95] md:text-7xl lg:text-8xl mb-5">Красота,<br/><em className="text-[#dfcaa4]">в которой вы</em><br/>собой.</h1>
+            <h1 className="font-serif text-5xl leading-[.95] md:text-7xl lg:text-8xl mb-5">Красота,<br/><em className="text-[#dfcaa4]">которая вам</em><br/>идёт.</h1>
             <p className="text-sm leading-relaxed opacity-80 max-w-md mb-8">
-              Персональный ритуал красоты: точная работа мастера, спокойная атмосфера и внимание к каждой детали.
+              Точная работа мастера, спокойная атмосфера и внимание к каждой детали — чтобы вам было комфортно и результат радовал.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
               <button onClick={() => setModalOpen(true)} className="gold-button text-white font-bold text-xs tracking-[0.16em] uppercase py-4 px-7 rounded-full hover:-translate-y-0.5 transition-all">Записаться онлайн</button>
@@ -152,7 +152,7 @@ export default function Home() {
               },
               { 
                 title: 'Стерильность и аккуратность', 
-                desc: 'Премиальные материалы и строгие нормы дезинфекции.',
+                desc: 'Качественные материалы и строгие нормы дезинфекции.',
                 icon: <svg fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" /></svg>
               },
               { 

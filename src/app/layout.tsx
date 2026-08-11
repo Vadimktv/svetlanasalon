@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "SvetlanaSalon | Эстетика и Косметология",
-  description: "Премиальный салон красоты в Геленджике",
+  description: "Салон красоты в Геленджике",
   metadataBase: new URL('https://svetlanasalon.ru'),
   appleWebApp: {
     title: "SvetlanaSalon",
