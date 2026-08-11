@@ -30,6 +30,7 @@ export async function POST(request: Request) {
 
     const telegramUrl = `https://api.telegram.org/bot${token}/sendMessage`;
     const errors: string[] = [];
+    let delivered = 0;
 
     for (const chatId of chatIds) {
       const res = await fetch(telegramUrl, {
@@ -44,14 +45,22 @@ export async function POST(request: Request) {
       if (!res.ok) {
         const errorData = await res.json();
         errors.push(errorData.description || `HTTP Error ${res.status}`);
+      } else {
+        delivered += 1;
       }
     }
 
-    if (errors.length > 0) {
+    if (delivered === 0) {
       return NextResponse.json(
         { success: false, error: errors.join('; ') },
         { status: 502 }
       );
+    }
+
+    if (errors.length > 0) {
+      // A legacy administrator chat may no longer be available; keep a successful
+      // booking from being rejected when it reached another configured recipient.
+      console.warn('Booking notification was delivered with partial recipient failures');
     }
 
     return NextResponse.json({
