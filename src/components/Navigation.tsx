@@ -3,10 +3,10 @@
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { useState } from 'react';
 
-export default function Navigation({ onBookingClick }: { onBookingClick: () => void }) {
+export default function Navigation({ onBookingClick, variant = 'hero' }: { onBookingClick: () => void; variant?: 'hero' | 'light' }) {
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(variant === 'light');
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
@@ -16,7 +16,7 @@ export default function Navigation({ onBookingClick }: { onBookingClick: () => v
       setHidden(false);
     }
     
-    setIsScrolled(latest > 50);
+    setIsScrolled(variant === 'light' || latest > 50);
   });
 
   const links = [

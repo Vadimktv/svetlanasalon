@@ -40,11 +40,11 @@ export default function PortfolioPage() {
   const [isModalOpen, setModalOpen] = useState(false);
 
   return (
-    <main className="w-full bg-[#ebdcd4] min-h-screen relative z-10">
-      <Navigation onBookingClick={() => setModalOpen(true)} />
+    <main className="w-full min-h-screen bg-[#f7f1e8] relative z-10 overflow-x-hidden">
+      <Navigation onBookingClick={() => setModalOpen(true)} variant="light" />
       <BookingModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
 
-      <section className="bg-white pt-32 pb-16 md:pt-40 md:pb-24 px-6 min-h-screen rounded-b-[40px] md:rounded-b-[80px] shadow-[0_10px_40px_rgba(0,0,0,0.05)] relative z-20">
+      <section className="bg-[#fffdf9] pt-32 pb-16 md:pt-40 md:pb-24 px-6 min-h-screen rounded-b-[40px] md:rounded-b-[80px] shadow-[0_10px_40px_rgba(69,45,22,0.08)] relative z-20">
         <div className="max-w-6xl mx-auto">
           
           <div className="text-center mb-12">

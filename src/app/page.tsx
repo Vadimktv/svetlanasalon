@@ -425,9 +425,6 @@ export default function Home() {
 
         </div>
 
-        <div className="mt-16 text-[10px] text-[#ebdcd4]/50 tracking-widest uppercase text-center w-full border-t border-white/10 pt-8">
-          © 2026 Svetlana Beauty Salon
-        </div>
       </motion.section>
 
       <BookingModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
